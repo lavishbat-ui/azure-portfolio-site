@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thomas Jackson | Azure & IT Portfolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header class="site-header">
+    <nav>
+      <div class="logo">TJ</div>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Azure • Infrastructure • Security • Automation</p>
+        <h1>Cloud-focused IT professional building secure, practical Azure solutions.</h1>
+        <p class="hero-text">I specialize in Microsoft cloud, systems administration, security tooling, backup/recovery, and infrastructure modernization. This site is a containerized Python Flask app deployed to Azure.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">View Projects</a>
+          <a class="button secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h2>Current Focus</h2>
+        <ul><li>Azure Certifications</li><li>ARM/Bicep automation</li><li>Secure cloud architecture</li></ul>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-heading"><p class="eyebrow">About</p><h2>Who I Am</h2></div>
+      <div class="about-layout">
+        <img class="headshot" src="{{ url_for('static', filename='headshot.jpg') }}" alt="Professional headshot of Thomas Jackson" />
+        <div>
+          <p class="wide-text">I am an IT professional with a decade of experience across Microsoft 365, Azure, Windows Server, virtualization, backup platforms, endpoint security, and client-facing technical support. I enjoy building secure, well-documented environments and troubleshooting complex problems.</p>
+          <p class="wide-text">My focus is practical cloud administration: secure networking, identity, backup and recovery, infrastructure as code, and reliable operations for real business environments.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-heading"><p class="eyebrow">Skills</p><h2>Technical Areas</h2></div>
+      <div class="skills-grid">
+        <div class="skill-card"><h3>Azure</h3><p>VMs, VNets, NSGs, Bastion, Storage, Key Vault, App Services, Containers, RBAC, RSV, ASR, Object Replication.</p></div>
+        <div class="skill-card"><h3>Security</h3><p>Least Privilege, Defender, Sentinel, MFA, DUO, KnowBe4, Access Reviews, Secure Design, Vulnerability Management, Firewalls, ACLs.</p></div>
+        <div class="skill-card"><h3>Infrastructure</h3><p>Windows Server, Linux, Active Directory, DNS, DHCP, VMware, Hyper-V, Veeam, Monitoring & Patching.</p></div>
+        <div class="skill-card"><h3>Automation</h3><p>PowerShell, Azure CLI, ARM templates, Bicep, Docker, Intune, GPO, RMM.</p></div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-heading"><p class="eyebrow">Portfolio</p><h2>Featured Projects</h2></div>
+      <div class="project-grid">
+        {% for project in projects %}
+        <article class="project-card">
+          <h3>{{ project.title }}</h3>
+          <p><strong>Problem:</strong> {{ project.problem }}</p>
+          <p><strong>Solution:</strong> {{ project.solution }}</p>
+          <p><strong>Result:</strong> {{ project.result }}</p>
+          <div class="tag-row">{% for item in project.tech %}<span>{{ item }}</span>{% endfor %}</div>
+        </article>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading"><p class="eyebrow">Learning</p><h2>Certifications & Development</h2></div>
+      <div class="cert-grid">
+        <div class="info-card"><h3>Certifications</h3><ul><li>CompTIA Security+</li><li>Microsoft Security Administrator</li><li>AZ-104 Administrator Associate</li></ul></div>
+        <div class="info-card"><h3>Toolset Experience</h3><ul><li>ConnectWise</li><li>Cisco DUO</li><li>Veeam</li><li>KnowBe4</li><li>Blumira</li><li>Splunk</li><li>Nessus</li><li>Inforcer</li><li>LastPass</li></ul></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="section-heading"><p class="eyebrow">Contact</p><h2>Let’s Connect</h2></div>
+      <div class="contact-card">
+        <p>Interested in talking cloud, infrastructure, security, or IT operations? Update the links below with your real contact details.</p>
+        <div class="contact-links"><a href="mailto:your.email@example.com">Email</a><a href="https://www.linkedin.com/" target="_blank">LinkedIn</a><a href="#" target="_blank">Resume</a><a href="https://github.com/" target="_blank">GitHub</a></div>
+      </div>
+    </section>
+  </main>
+  <footer><p>Built with Python, Flask, Docker, and Azure.</p></footer>
+</body>
+</html>
